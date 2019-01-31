@@ -14,7 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-let dev_db_url = 'mongodb://todos:todos1234@ds123834.mlab.com:23834/todos';
+// let dev_db_url = 'mongodb://todos:todos1234@ds123834.mlab.com:23834/todos';
+
+let dev_db_url = 'mongodb://todos:todos@cluster0-shard-00-00-fiobm.mongodb.net:27017,cluster0-shard-00-01-fiobm.mongodb.net:27017,cluster0-shard-00-02-fiobm.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true';
+
+
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise; //new
